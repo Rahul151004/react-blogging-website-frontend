@@ -1,6 +1,7 @@
 import React from 'react'
-import { proxy, useSnapshot } from 'valtio';
-import {proxyWithComputed} from 'valtio/utils';
+import { proxy, useSnapshot,snapshot } from 'valtio';
+import axios from 'axios';
+import { isEmpty } from 'lodash-es';
 //proxy object
 
 function getAuthUser(){
@@ -13,16 +14,19 @@ function getAuthUser(){
 const state = proxy(
     {
         authUser:getAuthUser(),
+
     },
-    {
-        isAuth:true
-    }
+   
 );
+
+const isAuth  = snapshot(state);
 const actions = {
     login: (user) => {
         console.log('login',{user,state});
         state.authUser = user;
         window.localStorage.setItem('jwtToken', btoa(JSON.stringify(state.authUser)));
+
+        axios.defaults.headers.Authorization = `Token ${state.authUser.token}`;
     },
     logout:() => {
         state.authUser = {};
@@ -34,9 +38,14 @@ const actions = {
 function useAuth() {
     const snap = useSnapshot(state);
     console.log('snap',{snap})
+
+    const getAuthStatus = () => !isEmpty(snap.authUser);
+
+
   return {
     ...snap,
-    ...actions
+    ...actions,
+    isAuth:getAuthStatus()
   }
 }
 
