@@ -36,4 +36,4 @@ function ArticlePreview({ article }) {
   )
 }
 
-export default ArticlePreview
+export default ArticlePreview;

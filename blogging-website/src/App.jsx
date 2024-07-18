@@ -1,21 +1,25 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { AuthRoute, GuestRoute, Navbar } from "./components";
 import { Article, Auth, Editor, Home, Settings } from "./pages";
 import axios from "axios";
 
 function App() {
-  useEffect(() => {
-
+  function setAuthorizationToken() {
     const jwt = window.localStorage.getItem('jwtToken');
-
-    if(!jwt) return {};
-
+  
+    if (!jwt) {
+      axios.defaults.headers.Authorization = ''; // Clear Authorization header if jwtToken is not present
+      return;
+    }
+  
     const parsedJwt = JSON.parse(atob(jwt));
-    console.log('parsedJwt',{parsedJwt})
     axios.defaults.headers.Authorization = `Token ${parsedJwt.token}`;
-
+  }
+  useEffect(() => {
+    setAuthorizationToken();
+ 
   }, []);
   return (
     <Router>

@@ -24,4 +24,4 @@ function ArticleMeta({author,createdAt}) {
   )
 }
 
-export default ArticleMeta
+export default ArticleMeta;
