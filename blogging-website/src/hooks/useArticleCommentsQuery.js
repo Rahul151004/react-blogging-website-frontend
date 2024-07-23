@@ -28,6 +28,7 @@ function useArticleCommentsQuery() {
   const { mutate: deleteComment } = useMutation({
     mutationFn: deleteCommentApi,
     onSuccess: () => {
+      alert("Comment successfully deleted");
       queryClient.invalidateQueries({ queryKey: ["articleComments", slug] });
     },
     onError: (err) => alert(err.message),
