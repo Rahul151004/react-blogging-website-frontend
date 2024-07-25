@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 
 const getCurrentUser = async () => {
-  const {data} = await axios.get(`${baseURL}/api/user`);
+  const {data} = await axios.get(`${process.env.baseURL}/api/user`);
 
 //   console.log("getCurrentUser", { data });
 

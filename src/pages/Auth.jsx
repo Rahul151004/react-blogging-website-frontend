@@ -16,7 +16,7 @@ function Auth() {
       // api request to login or register
 
       const { data } = await axios.post(
-        `${baseURL}/api/users${isRegister ? "" : "/login"}`,
+        `${process.env.baseURL}/api/users${isRegister ? "" : "/login"}`,
         { user: values }
       );
 

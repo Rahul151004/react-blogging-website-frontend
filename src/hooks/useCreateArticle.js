@@ -7,7 +7,7 @@ const creteArticle = async (values) => {
     console.log("creteArticle", { values });
 
     const { data } = await axios.post(
-        `${baseURL}/api/articles`,
+        `${process.env.baseURL}/api/articles`,
         { article: {...values.values} }
       );
 
