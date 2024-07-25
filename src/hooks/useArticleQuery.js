@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 
 const getArticleBySlug = async (slug) => {
-    const {data} = await axios.get(`${process.env.baseURL}/api/articles/${slug}`);
+    const {data} = await axios.get(`${process.env.import.meta.env.VITE_BASE_URL}/api/articles/${slug}`);
   
     console.log("getCurrentUser", { data });
   

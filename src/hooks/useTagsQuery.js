@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 
 const getAllTags = async () => {
-  const {data} = await axios.get(`${process.env.baseURL}/api/tags`);
+  const {data} = await axios.get(`${process.env.import.meta.env.VITE_BASE_URL}/api/tags`);
 
 //   console.log("getCurrentUser", { data });
 
