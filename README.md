@@ -7,7 +7,7 @@ To get the frontend running locally:
 - Clone this repo
 - `npm install` to install all req'd dependencies
 - `npm run dev` to start the local server (this project Vite)
-- process.env.REACT_APP_BASE_URL has to be changed to `http://localhost:{PORT}`
+- process.env.import.meta.env.VITE_BASE_URL has to be changed to `http://localhost:{PORT}`
 
 
 ## Functionality overview
