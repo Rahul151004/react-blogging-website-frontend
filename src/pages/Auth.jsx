@@ -16,7 +16,7 @@ function Auth() {
       // api request to login or register
 
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/users${isRegister ? "" : "/login"}`,
+        `${import.meta.env.VITE_API_URL}/api/users${isRegister ? "" : "/login"}`,
         { user: values }
       );
 

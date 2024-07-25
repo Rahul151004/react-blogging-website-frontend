@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 
 const getAllTags = async () => {
-  const {data} = await axios.get(`https://react-blogging-website-backend.onrender.com/api/tags`);
+  const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/api/tags`);
 
 //   console.log("getCurrentUser", { data });
 

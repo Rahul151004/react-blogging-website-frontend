@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 
 const getAllArticles = async () => {
-  const {data} = await axios.get(`https://react-blogging-website-backend.onrender.com/api/articles/feed`);
+  const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/api/articles/feed`);
 
   console.log("getCurrentUser", { data });
 
