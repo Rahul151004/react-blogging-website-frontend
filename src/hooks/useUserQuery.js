@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 
 const getCurrentUser = async () => {
-  const {data} = await axios.get(`${process.env.import.meta.env.VITE_BASE_URL}/api/user`);
+  const {data} = await axios.get(`https://react-blogging-website-backend.onrender.com/api/user`);
 
 //   console.log("getCurrentUser", { data });
 
