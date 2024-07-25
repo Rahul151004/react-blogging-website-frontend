@@ -25,7 +25,7 @@ function Settings() {
 
     async function onSubmit(values, {setErrors}){
         try {
-            const {data} = await axios.put(`https://react-blogging-website-backend.onrender.com/api/user`, {user:values});
+            const {data} = await axios.put(`${baseURL}/api/user`, {user:values});
 
             const updatedUsername = data?.user?.username;
 

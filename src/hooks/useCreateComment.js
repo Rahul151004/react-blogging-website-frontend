@@ -7,7 +7,7 @@ const createCommentApi = async (values) => {
     console.log("creteArticle", { values });
 
     const { data } = await axios.post(
-        `https://react-blogging-website-backend.onrender.com/api/articles/${values.slug}/comments`,
+        `${baseURL}/api/articles/${values.slug}/comments`,
         { ...values.values }
       );
 

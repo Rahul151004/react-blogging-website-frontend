@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 
 const getArticleComments = async (slug) => {
   const { data } = await axios.get(
-    `https://react-blogging-website-backend.onrender.com/api/articles/${slug}/comments`
+    `${baseURL}/api/articles/${slug}/comments`
   );
   return data;
 };
 
 const deleteCommentApi = async ({ slug, id }) => {
-  await axios.delete(`https://react-blogging-website-backend.onrender.com/api/articles/${slug}/comments/${id}`);
+  await axios.delete(`${baseURL}/api/articles/${slug}/comments/${id}`);
 };
 
 function useArticleCommentsQuery() {
